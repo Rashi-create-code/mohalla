@@ -1,0 +1,57 @@
+.page {
+  min-height: 100vh;
+  background: var(--cream);
+  padding-top: 64px;
+  padding-bottom: 80px;
+}
+.hero {
+  background: var(--black);
+  padding: 56px 60px 52px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 52px;
+  background: linear-gradient(to top, var(--cream), transparent);
+}
+.heroGrain {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.3; pointer-events: none;
+}
+.heroOrb {
+  position: absolute;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: rgba(232, 88, 26, 0.1);
+  top: -200px; right: -100px;
+  filter: blur(80px); pointer-events: none;
+}
+.heroContent { position: relative; z-index: 1; }
+.heroEye {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px; padding: 6px 14px;
+  font-size: 11px; font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.7px; text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 60px);
+  font-weight: 900; letter-spacing: -2px;
+  color: #fff; line-height: 1;
+}
+.heroSub {
+  font-size: 15px; color: rgba(255,255,255,0.4);
+  margin-top: 10px; font-weight: 400; line-height: 1.6;
+}
+.content { padding: 28px 60px; }
+
+@media (max-width: 860px) {
+  .hero, .content { padding-left: 20px; padding-right: 20px; }
+}

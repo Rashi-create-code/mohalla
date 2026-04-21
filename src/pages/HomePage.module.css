@@ -1,0 +1,519 @@
+/* ─── PAGE ───────────────────────────────────────────────────────────────── */
+.page { background: var(--white); }
+
+/* ─── SHARED SECTION ─────────────────────────────────────────────────────── */
+.section { padding: 88px 60px; }
+.sectionWhite { background: var(--white); }
+.sectionOff   { background: var(--cream); }
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4vw, 54px);
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  line-height: 1.02;
+  color: var(--ink);
+}
+.sectionTitleWh { color: #fff; }
+.sectionSub {
+  font-size: 15px;
+  color: var(--ink2);
+  line-height: 1.75;
+  max-width: 400px;
+}
+.divider { height: 1px; background: rgba(0,0,0,0.07); margin: 32px 0; }
+
+/* ─── HERO ───────────────────────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding-top: 64px;
+  background: var(--black);
+  background-size: cover;
+  background-position: center;
+}
+
+
+.grain {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.35; pointer-events: none; z-index: 0;
+}
+
+.heroRight {
+  position: absolute;
+  top: 64px; right: 0; bottom: 0;
+  width: 52%;
+  overflow: hidden;
+}
+.heroRightFake {
+  width: 100%; 
+  height: 100%;
+  /* Replace the URL below with your chosen building image */
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  position: relative;
+}
+
+/* Optional: Soften the image to match the dark theme */
+.heroRightFake::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 11, 0.2); /* Adds a subtle dark tint */
+  z-index: 0;
+}
+.heroEmojis {
+  font-size: 120px; opacity: 0.18; animation: float 8s ease-in-out infinite;
+}
+
+.heroContent {
+  position: relative; z-index: 2;
+  padding: 0 60px 80px;
+  max-width: 660px;
+}
+.heroEyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.11);
+  border-radius: 20px;
+  padding: 7px 16px;
+  font-size: 11px; font-weight: 700;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.8px; text-transform: uppercase;
+  margin-bottom: 24px;
+  backdrop-filter: blur(8px);
+}
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 6.5vw, 88px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -3px;
+  color: #fff;
+  margin-bottom: 22px;
+}
+.heroEm { font-style: normal; color: var(--orange); }
+.heroSub {
+  font-size: 16px; font-weight: 400;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.75; max-width: 400px;
+  margin-bottom: 36px;
+}
+.heroBtns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 52px; }
+.heroStats { display: flex; gap: 36px; flex-wrap: wrap; }
+.heroStat {}
+.heroStatNum {
+  font-family: var(--font-display);
+  font-size: 30px; font-weight: 900; color: #fff; line-height: 1;
+}
+.heroStatLbl {
+  font-size: 10px; font-weight: 700; color: var(--ink3);
+  text-transform: uppercase; letter-spacing: 0.8px; margin-top: 4px;
+}
+
+/* ─── ABOUT ──────────────────────────────────────────────────────────────── */
+.aboutGrid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
+}
+.aboutPhotos {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px;
+}
+.photoCard {
+  border-radius: 12px; overflow: hidden;
+  position: relative; cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.photoCard:hover { transform: scale(1.025); }
+.photoCardEmoji {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0.25;
+}
+.photoCardOverlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(13,13,11,0.88), transparent 55%);
+  display: flex; align-items: flex-end; padding: 18px;
+}
+.photoCardTitle {
+  font-family: var(--font-display);
+  font-size: 15px; font-weight: 700; color: #fff; line-height: 1.3;
+  margin-right:12px;
+}
+.photoCardSub { font-size: 11px; color: rgba(255,255,255,0.55); margin-top: 3px; }
+
+.aboutRight { padding-top: 60px; }
+.aboutNav { display: flex; align-items: center; gap: 12px; margin-top: 28px; }
+.aboutNavCount { font-size: 13px; color: var(--ink3); font-weight: 600; }
+.statsGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+/* ─── HAPPENINGS ─────────────────────────────────────────────────────────── */
+/* 1. Update Grid to 'stretch' so columns are same height */
+.evGrid { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 64px; 
+  align-items: stretch; /* CHANGED from 'start' to 'stretch' */
+  margin-top: 8px; 
+}
+
+/* 2. Update Photo Container to fill the height */
+.evPhoto {
+  border-radius: var(--radius); 
+  overflow: hidden;
+  /* aspect-ratio: 3/4;  <-- REMOVE OR COMMENT THIS OUT */
+  position: relative;
+  min-height: 100%; /* ADD THIS to ensure it fills the grid height */
+  background: linear-gradient(160deg, #141412, #1e1c18);
+}
+
+/* 3. Add this for the actual image inside the container */
+.evPhotoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Keeps houses from looking squashed */
+  display: block;
+}
+
+/* 4. Ensure the list takes up its natural space */
+.evList { 
+  display: flex; 
+  flex-direction: column; 
+  height: 100%; /* Ensures the left side defines the total height */
+}
+
+/* Rest of your code remains the same */
+.evSub { font-size: 14px; color: var(--ink3); margin-bottom: 28px; line-height: 1.6; }
+.evItem {
+  display: flex; align-items: center; gap: 16px;
+  padding: 18px 0; border-bottom: 1px solid var(--sand);
+  cursor: pointer; transition: all 0.2s;
+}
+
+.evItem:first-child { border-top: 1px solid var(--sand); }
+.evItem:hover .evName { color: var(--orange); }
+.evItem:hover .evArrow { opacity: 1; transform: translateX(0); }
+.evNum {
+  font-family: var(--font-display); font-size: 12px;
+  font-weight: 700; color: var(--ink3); width: 22px; flex-shrink: 0;
+}
+.evText { flex: 1; }
+.evName { font-size: 14px; font-weight: 600; color: var(--ink); transition: color 0.2s; line-height: 1.4; }
+.evMeta { font-size: 11px; color: var(--ink3); margin-top: 3px; text-transform: capitalize; }
+.evArrow {
+  opacity: 0; transform: translateX(-8px);
+  transition: all 0.2s; color: var(--orange); font-size: 14px;
+}
+
+.evPhotoFake {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 80px; opacity: 0.2;
+}
+.evPhotoBadge {
+  position: absolute; bottom: 20px; left: 20px; right: 20px;
+  background: rgba(255,255,255,0.97);
+  border-radius: 10px; padding: 16px;
+  backdrop-filter: blur(8px);
+}
+.evBadgeNum {
+  font-family: var(--font-display); font-size: 22px;
+  font-weight: 900; color: var(--ink);
+}
+.evBadgeLbl { font-size: 11px; color: var(--ink3); margin-top: 3px; }
+
+/* ─── ZONES ──────────────────────────────────────────────────────────────── */
+.zoneSec {
+  background: var(--black); color: #fff;
+  padding: 88px 60px; text-align: center; position: relative; overflow: hidden;
+}
+.zoneBgTxt {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 360px; opacity: 0.025; pointer-events: none; user-select: none;
+  overflow: hidden;
+}
+.zoneInner { position: relative; z-index: 1; }
+.zoneSub { color: rgba(255,255,255,0.38); font-size: 14px; max-width: 380px; margin: 14px auto 0; line-height: 1.75; }
+.zonesRow {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 16px; margin-top: 48px; text-align: left;
+  max-width: 900px; margin-left: auto; margin-right: auto;
+}
+.zoneCard {
+  border-radius: var(--radius); overflow: hidden;
+  position: relative; aspect-ratio: 3/4; cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.zoneCard:hover { transform: translateY(-8px); }
+.zoneCardEmoji {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 60px; opacity: 0.35;
+}
+.zoneCardOverlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(13,13,11,0.92) 40%, transparent 80%);
+  display: flex; flex-direction: column; justify-content: flex-end; padding: 20px;
+}
+.zoneCardName {
+  font-family: var(--font-display); font-size: 22px;
+  font-weight: 900; color: #fff;
+}
+.zoneCardCnt { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 3px; }
+.zoneArrBtn {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--orange); border: none;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: #fff; font-size: 12px; margin-top: 12px;
+  transition: transform 0.2s;
+}
+.zoneArrBtn:hover { transform: scale(1.15); }
+.zoneNav { display: flex; justify-content: center; gap: 10px; margin-top: 28px; }
+
+/* ─── EXPLORE ────────────────────────────────────────────────────────────── */
+.exGrid { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 64px; 
+  align-items: stretch; /* Forces equal height columns */
+}
+
+.exGridReverse { 
+  direction: rtl; 
+}
+
+.exGridReverse > * { 
+  direction: ltr; /* Keeps the text inside readable */
+}
+
+.exBig {
+  border-radius: var(--radius); 
+  overflow: hidden;
+  position: relative;
+  /* aspect-ratio: 3/4; <-- Remove this line if it exists */
+  height: 100%; 
+}
+
+.miniCard {
+  border-radius: 10px; 
+  aspect-ratio: 4/3; 
+  overflow: hidden;
+  position: relative; 
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.miniCardOverlay {
+  position: absolute; 
+  inset: 0;
+  /* Darkened gradient for better text visibility */
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 10%, transparent 70%);
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-end; 
+  padding: 12px;
+}
+
+.miniCards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+
+.miniCard:hover { transform: scale(1.035); }
+.miniCardEmoji {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 34px; opacity: 0.3;
+}
+
+.miniCardTitle { font-size: 12px; font-weight: 700; color: #fff; line-height: 1.3; }
+.miniCardSub { font-size: 10px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+.exBig {
+  border-radius: var(--radius); 
+  overflow: hidden;
+  position: relative;
+  /* aspect-ratio: 3/4;  <-- DELETE THIS LINE */
+  height: 100%; 
+}
+
+.exBigCard {
+  /* 1. POSITIONING: Pin to bottom and add padding from edges */
+  position: absolute; 
+  bottom: 20px; 
+  left: 20px; 
+  right: 20px;
+  
+  /* 2. READABILITY FIX: Light background to make text pop */
+  background: rgba(255, 255, 255, 0.95); /* A solid, slightly opaque white */
+  border-radius: 12px; 
+  padding: 18px; 
+  
+  /* Optional: Glassmorphism effect so the underlying photo blurs nicely */
+  backdrop-filter: blur(8px); 
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-lg); /* Add a light shadow so it feels like a real card */
+}
+
+/* Optional: If the text is still hard to read, darken it */
+.excTitle { 
+  font-weight: 700; 
+  font-size: 14px; 
+  color: var(--black); /* Or your specific dark text variable */
+}
+
+.fareSmall { 
+  font-size: 12px; 
+  color: var(--black); 
+  opacity: 0.7; /* Makes it a lighter version of the dark text */
+}
+
+.excTags { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: 8px; }
+.excRating { font-size: 11px; font-weight: 700; color: var(--ink3); }
+.excSub { font-size: 12px; color: var(--ink3); margin-top: 8px; line-height: 1.5; }
+.excBtn {
+  margin-top: 14px; width: 100%; padding: 10px;
+  background: var(--orange); color: #fff; border: none;
+  border-radius: 7px; font-size: 13px; font-weight: 700;
+  cursor: pointer; font-family: var(--font-body); transition: background 0.2s;
+}
+.excBtn:hover { background: var(--orange2); }
+.fareBig {
+  font-family: var(--font-display); font-size: 36px;
+  font-weight: 900; color: var(--ink); line-height: 1;
+}
+.fareList { display: flex; flex-direction: column; margin-top: 32px; }
+.fareItem {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 0; border-bottom: 1px solid var(--sand);
+  cursor: pointer; transition: all 0.2s;
+}
+.fareItem:hover .fareRoute { color: var(--orange); }
+.fareIdx {
+  font-family: var(--font-display); font-size: 12px;
+  font-weight: 700; color: var(--ink3); width: 22px; flex-shrink: 0;
+}
+.fareRoute { font-size: 14px; font-weight: 700; color: var(--ink); transition: color 0.2s; }
+.fareMeta { font-size: 11px; color: var(--ink3); margin-top: 2px; }
+.farePrice {
+  font-family: var(--font-display); font-size: 22px;
+  font-weight: 900; color: var(--ink); flex-shrink: 0;
+}
+
+/* ─── TESTIMONIAL ────────────────────────────────────────────────────────── */
+.testiSec {
+  padding: 40px 0 20px; /* Reduced bottom padding to remove extra space */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testiHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Aligns arrows horizontally with the title */
+  margin-bottom: 24px;
+}
+
+.testiNav {
+  display: flex;
+  gap: 12px;
+  align-self: center;
+}
+
+.testiBanner {
+  width: 100%;
+  min-height: 320px; /* Adjusted to prevent excessive height */
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  /* Visual feedback: The transition makes the "change" visible on click */
+  transition: all 0.4s ease-in-out; 
+}
+
+.testiBannerContent {
+  padding: 40px 60px;
+  width: 100%;
+}
+
+.testiText {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.4;
+  margin: 0 0 24px 0; /* Tightened space between text and chips */
+}
+
+.testiChips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.testiChip {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 13px;
+}
+
+/* ─── FOOTER CTA ─────────────────────────────────────────────────────────── */
+.footerCTA {
+  background: var(--black); padding: 88px 60px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.footerGrain {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.3; pointer-events: none;
+}
+.footerOrb {
+  position: absolute; width: 600px; height: 600px; border-radius: 50%;
+  background: rgba(232,88,26,0.12); top: -200px; left: 50%;
+  transform: translateX(-50%); filter: blur(100px); pointer-events: none;
+}
+.footerInner { position: relative; z-index: 1; }
+.footerSub {
+  color: rgba(255,255,255,0.38); font-size: 15px;
+  max-width: 360px; margin: 0 auto 36px;
+  line-height: 1.75;
+}
+.footerBtns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.footerBar {
+  position: relative; z-index: 1;
+  margin-top: 64px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 40px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+}
+.footerLogo {
+  font-family: var(--font-display); font-size: 20px;
+  font-weight: 900; color: #fff;
+}
+.footerCopy { font-size: 12px; color: rgba(255,255,255,0.22); }
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .section, .testiSec, .zoneSec, .footerCTA { padding-left: 24px; padding-right: 24px; }
+  .aboutGrid, .evGrid, .exGrid, .testiGrid { grid-template-columns: 1fr; gap: 36px; }
+  .exGridReverse { direction: ltr; }
+  .heroRight { display: none; }
+  .heroLeftOverlay { background: rgba(13,13,11,0.84); }
+  .heroContent { padding: 0 24px 100px; }
+  .aboutPhotos { grid-template-columns: 1fr; }
+  .zonesRow { grid-template-columns: 1fr 1fr; }
+  .testiGrid { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .heroStats { gap: 20px; }
+  .zonesRow, .miniCards { grid-template-columns: 1fr; }
+  .statsGrid { grid-template-columns: 1fr 1fr; }
+}

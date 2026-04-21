@@ -1,0 +1,102 @@
+.filterBar {
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 24px; background: #fff;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+  overflow-x: auto; flex-wrap: nowrap;
+}
+.filterBtn {
+  padding: 7px 16px; border-radius: 20px;
+  font-size: 12px; font-weight: 700;
+  border: 1.5px solid rgba(0,0,0,0.1); background: #fff; color: var(--ink2);
+  cursor: pointer; transition: all 0.2s; white-space: nowrap;
+  font-family: var(--font-body); text-transform: capitalize; flex-shrink: 0;
+}
+.filterBtn:hover { border-color: var(--orange); color: var(--orange); }
+.filterBtnActive { background: var(--ink); color: #fff; border-color: var(--ink); }
+.filterCount { margin-left: auto; font-size: 11px; color: var(--ink3); font-weight: 700; flex-shrink: 0; }
+
+.msgs {
+  flex: 1; 
+  padding: 20px 24px;
+  display: flex; 
+  flex-direction: column; 
+  gap: 18px;
+  min-height: 300px;
+  padding-bottom: 180px; /* IMPORTANT: Adjust this value to match your composer's height */
+}
+.msgWrap { animation: slideRight 0.35s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.msg { display: flex; gap: 14px; align-items: flex-start; }
+.msgBody { flex: 1; }
+.msgMeta {
+  display: flex; align-items: center; gap: 8px;
+  flex-wrap: wrap; margin-bottom: 7px;
+}
+.msgAuthor { font-weight: 700; font-size: 13px; color: var(--ink); }
+.msgTime { font-size: 11px; color: var(--ink3); margin-left: auto; }
+.msgBubble {
+  background: #fff; border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius); padding: 14px 16px;
+  font-size: 14px; color: var(--ink); line-height: 1.55;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ─── COMPOSER ───────────────────────────────────────────────────────────── */
+.composer {
+  position: fixed; /* Changed from sticky */
+  bottom: 0;       /* Lock to very bottom */
+  left: 0;
+  right: 0;        /* Makes it span the full width */
+  background: #fff; 
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding: 14px 24px; 
+  z-index: 100;    /* Increased to stay above everything */
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.05); /* Optional: adds depth */
+}
+.typePicker {
+  display: flex; gap: 8px; margin-bottom: 12px;
+  overflow-x: auto; padding-bottom: 2px;
+}
+.typeBtn {
+  padding: 6px 14px; border-radius: 20px;
+  font-size: 12px; font-weight: 700;
+  border: 1.5px solid rgba(0,0,0,0.1); background: transparent; color: var(--ink2);
+  cursor: pointer; transition: all 0.2s; flex-shrink: 0;
+  font-family: var(--font-body); text-transform: capitalize;
+}
+.typeBtn:hover { border-color: var(--orange); color: var(--orange); }
+.typeBtnActive { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+.composerRow { display: flex; gap: 14px; align-items: flex-start; }
+.composerInput { flex: 1; }
+.textarea {
+  width: 100%; padding: 12px 14px; border-radius: var(--radius-sm);
+  border: 1.5px solid rgba(0,0,0,0.12);
+  font-family: var(--font-body); font-size: 14px;
+  background: var(--cream); color: var(--ink); outline: none;
+  resize: none; line-height: 1.6;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.textarea:focus { border-color: var(--orange); background: #fff; box-shadow: 0 0 0 3px rgba(232,88,26,0.08); }
+.textareaErr { border-color: var(--red); }
+.composerFooter {
+  display: flex; justify-content: space-between; align-items: center; margin-top: 8px;
+}
+.composerErr { font-size: 11px; font-weight: 700; color: var(--red); }
+.charCount { font-size: 11px; color: var(--ink3); font-weight: 600; }
+.postBtn {
+  background: var(--orange); color: #fff; border: none;
+  padding: 9px 20px; border-radius: var(--radius-sm);
+  font-size: 13px; font-weight: 700; cursor: pointer;
+  font-family: var(--font-body); transition: all 0.2s;
+}
+.postBtn:hover { background: var(--orange2); transform: translateY(-1px); }
+
+/* If you have a bottom navigation bar, use this: */
+@media (max-width: 860px) {
+  .composer { 
+    bottom: 64px; /* Sits above the 64px tall navbar */
+  }
+  .msgs {
+    padding-bottom: 240px; /* Extra space for both composer and navbar */
+  }
+}
