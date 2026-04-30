@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mohalla/static/css/main.26b0f157.css",
+    "main.js": "/mohalla/static/js/main.bbb8f42e.js",
+    "index.html": "/mohalla/index.html",
+    "main.26b0f157.css.map": "/mohalla/static/css/main.26b0f157.css.map",
+    "main.bbb8f42e.js.map": "/mohalla/static/js/main.bbb8f42e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.26b0f157.css",
+    "static/js/main.bbb8f42e.js"
+  ]
+}
