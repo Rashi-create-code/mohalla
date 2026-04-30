@@ -5,12 +5,12 @@ export const ZONES = [
 ];
 
 export const ZONE_META = {
-  'Sector 12': { emoji: '🏘️', count: 340, color: '#1e2a1a' },
-  'Lal Dora':  { emoji: '🌾', count: 210, color: '#1a1e2a' },
-  'Civil Lines':{ emoji: '🏛️', count: 520, color: '#2a1a1e' },
-  'Model Town': { emoji: '🌳', count: 280, color: '#1a2a22' },
-  'Old City':   { emoji: '🕌', count: 460, color: '#2a221a' },
-  'Sadar Bazar':{ emoji: '🛒', count: 390, color: '#221a2a' },
+  'Sector 12': {count: 340, color: '#1e2a1a' },
+  'Lal Dora':  { count: 210, color: '#1a1e2a' },
+  'Civil Lines':{count: 520, color: '#2a1a1e' },
+  'Model Town': {count: 280, color: '#1a2a22' },
+  'Old City':   {count: 460, color: '#2a221a' },
+  'Sadar Bazar':{count: 390, color: '#221a2a' },
 };
 
 // ─── AVATAR ──────────────────────────────────────────────────────────────────

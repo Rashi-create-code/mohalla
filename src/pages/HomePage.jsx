@@ -16,7 +16,7 @@ function HeroSection() {
       className={styles.hero}
       style={{
         // Reduced opacity from 0.8 to 0.5 so the photo is visible
-        backgroundImage: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url("/assets/bg2.jpg")',
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url(${process.env.PUBLIC_URL}/assets/bg2.jpg)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed' // This keeps the image steady as you scroll
@@ -192,7 +192,7 @@ function ZonesSection() {
   // Helper to match photos to the specific zones in your "Across the City" screenshot
   const getZoneImage = (name) => {
     const images = {
-      'Sector 12': '/assets/bg.jpg',
+      'Sector 12': process.env.PUBLIC_URL + '/assets/bg.jpg',
       'Lal Dora': 'https://images.unsplash.com/photo-1569416078500-3857b00616f8?q=80&w=800',
       'Civil Lines': 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=800'
     };
@@ -247,10 +247,10 @@ function ExploreShopsSection() {
   // Helper to assign a different photo to each shop card
   const getShopPhoto = (index) => {
     const photos = [
-      "/assets/grocery.jpg",
-      "/assets/electronics.jpg",
-      "/assets/bakery.jpg",
-      "/assets/pharmacy.jpg"
+      process.env.PUBLIC_URL + "/assets/grocery.jpg",
+      process.env.PUBLIC_URL + "/assets/electronics.jpg",
+      process.env.PUBLIC_URL + "/assets/bakery.jpg",
+      process.env.PUBLIC_URL + "/assets/pharmacy.jpg"
     ];
     return photos[index % photos.length];
   };
@@ -297,7 +297,7 @@ function ExploreShopsSection() {
           <div
             className={styles.exBig}
             style={{
-              backgroundImage: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url("/assets/grocery.jpg")',
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url(${process.env.PUBLIC_URL}/assets/grocery.jpg)`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               height: '100%',
@@ -334,23 +334,23 @@ function ExploreFaresSection() {
     <section className={`${styles.section} ${styles.sectionWhite}`}>
       <SectionTag>Explore Fares</SectionTag>
       <div className={`${styles.exGrid} ${styles.exGridReverse}`}>
-        
+
         {/* PHOTO CARD (Left Side due to exGridReverse) */}
         <Reveal style={{ height: '100%' }}>
-          <div 
-            className={styles.exBig} 
+          <div
+            className={styles.exBig}
             style={{
-              backgroundImage: 'linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url("/assets/rickshaw.jpg")',
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url(${process.env.PUBLIC_URL}/assets/rickshaw.jpg)`,
               backgroundSize: 'cover',
               /* This shifts the photo UP so the auto is visible */
-              backgroundPosition: 'center 15%', 
+              backgroundPosition: 'center 15%',
               height: '100%',
               display: 'flex',
               flexDirection: 'column'
             }}
           >
             <div className={styles.exBigEmoji}>🛺</div>
-            
+
             {/* Details Card with Light Background */}
             <div className={styles.exBigCard}>
               <div className={styles.excTitle}>Bus Stand → Civil Hospital</div>
@@ -378,7 +378,7 @@ function ExploreFaresSection() {
           <Button variant="primary" onClick={() => setPage('fares')} style={{ marginTop: 24 }}>
             See All Fares →
           </Button>
-          
+
           <div className={styles.fareList}>
             {FARES.slice(0, 4).map((f, i) => (
               <Reveal key={f.id || i} delay={i * 80}>
@@ -441,7 +441,7 @@ function TestimonialSection() {
 
       {/* Dynamic Background Banner for each testimonial */}
       <Reveal key={`banner-${active}`} delay={100}>
-        <div 
+        <div
           className={styles.testiBanner}
           style={{
             backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4)), url("${TESTIMONIALS[active].bg}")`,
@@ -467,52 +467,52 @@ function TestimonialSection() {
   );
 }
 
-        function FooterCTA() {
-  const {setPage} = useApp();
-        return (
-        <section className={styles.footerCTA}>
-          <div className={styles.footerGrain} />
-          <div className={styles.footerOrb} />
-          <div className={styles.footerInner}>
-            <SectionTag dark>Join Mohalla</SectionTag>
-            <h2 className={`${styles.sectionTitle} ${styles.sectionTitleWh}`} style={{ maxWidth: 480, margin: '0 auto 16px' }}>
-              Start Knowing Your<br />Street Today
-            </h2>
-            <p className={styles.footerSub}>
-              No account. No phone number. Just pick a zone and start contributing to your community.
-            </p>
-            <div className={styles.footerBtns}>
-              <Button variant="primary" size="lg" onClick={() => setPage('profile')}>
-                Create Your Avatar →
-              </Button>
-              <Button variant="outline" size="lg" onClick={() => setPage('chat')}>
-                Browse Chat
-              </Button>
-            </div>
-          </div>
-          <div className={styles.footerBar}>
-            <div className={styles.footerLogo}>
-              Mohalla<span style={{ color: 'var(--orange)' }}>.</span>
-            </div>
-            <div className={styles.footerCopy}>No ads · No data collection · Built for neighbours</div>
-          </div>
-        </section>
-        );
+function FooterCTA() {
+  const { setPage } = useApp();
+  return (
+    <section className={styles.footerCTA}>
+      <div className={styles.footerGrain} />
+      <div className={styles.footerOrb} />
+      <div className={styles.footerInner}>
+        <SectionTag dark>Join Mohalla</SectionTag>
+        <h2 className={`${styles.sectionTitle} ${styles.sectionTitleWh}`} style={{ maxWidth: 480, margin: '0 auto 16px' }}>
+          Start Knowing Your<br />Street Today
+        </h2>
+        <p className={styles.footerSub}>
+          No account. No phone number. Just pick a zone and start contributing to your community.
+        </p>
+        <div className={styles.footerBtns}>
+          <Button variant="primary" size="lg" onClick={() => setPage('profile')}>
+            Create Your Avatar →
+          </Button>
+          <Button variant="outline" size="lg" onClick={() => setPage('chat')}>
+            Browse Chat
+          </Button>
+        </div>
+      </div>
+      <div className={styles.footerBar}>
+        <div className={styles.footerLogo}>
+          Mohalla<span style={{ color: 'var(--orange)' }}>.</span>
+        </div>
+        <div className={styles.footerCopy}>No ads · No data collection · Built for neighbours</div>
+      </div>
+    </section>
+  );
 }
 
 
-        // 2. Then comes your main HomePage component
-        export default function HomePage() {
+// 2. Then comes your main HomePage component
+export default function HomePage() {
   return (
-        <div className={styles.page}>
-          <HeroSection />
-          <AboutSection />
-          <HappeningsSection />
-          <ZonesSection />
-          <ExploreShopsSection />
-          <ExploreFaresSection /> {/* This will now work */}
-          <TestimonialSection />
-          <FooterCTA />
-        </div>
-        );
+    <div className={styles.page}>
+      <HeroSection />
+      <AboutSection />
+      <HappeningsSection />
+      <ZonesSection />
+      <ExploreShopsSection />
+      <ExploreFaresSection /> {/* This will now work */}
+      <TestimonialSection />
+      <FooterCTA />
+    </div>
+  );
 }
