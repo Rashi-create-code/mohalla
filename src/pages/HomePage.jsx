@@ -59,21 +59,21 @@ function AboutSection() {
   const cards = [
     {
       // Matches the "Build Local Trust" card (Top Wide Card)
-      bg: '/assets/trust.jpg',
+      bg: process.env.PUBLIC_URL + '/assets/trust.jpg',
       title: 'Build Local Trust',
       sub: '  Shop ratings from real neighbours',
       big: true
     },
     {
       // Matches the "Know the Real Fare" card (Bottom Left)
-      bg: '/assets/rickshaw.jpg',
+      bg: process.env.PUBLIC_URL + '/assets/rickshaw.jpg',
       title: 'Know the Real Fare',
       sub: '  Verified auto & rickshaw rates',
       big: false
     },
     {
       // Matches the "Stay Safe" card (Bottom Right)
-      bg: '/assets/safelock.jpg',
+      bg: process.env.PUBLIC_URL + '/assets/safelock.jpg',
       title: 'Stay Safe',
       sub: '  Live alerts & safety warnings',
       big: false
